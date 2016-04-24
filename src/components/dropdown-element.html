@@ -1,0 +1,23 @@
+<template>
+  <style>
+    label, p {
+      display: block;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+  </style>
+  <section ref="segment" id="${model.id}" class="ui-element">
+    <div class="ui large form">
+      <div class="ui grid">
+        <div class="eight wide centered column">
+          <label class="ui large">${model.questionText}</label>
+          <select value.bind="model.app.form.data[model.id]" class="ui massive dropdown" change.delegate="change()">
+            <option value="">${model.labelText}</option>
+            <option repeat.for="field of model.fields" value.bind="field.value">${field.text}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </section>
+</template>

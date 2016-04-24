@@ -1,0 +1,52 @@
+<template>
+  <require from="./lotto-number"></require>
+  <style>
+    label, p {
+      display: block;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+    hr {
+      width: 25%;
+      height: 10px;
+      background: #DEDEDE;
+      border: none;
+      margin-top:28px;
+      opacity: 0;
+    }
+  </style>
+
+<require from="./dropdown-element"></require>
+
+
+<!-- <compose ref="questions" repeat.for="page of pages" view-model.bind="page.type" model.bind="page.model" arbitrary.bind="'hey'"></compose> -->
+
+  <section ref="ui_gameSelect">
+    <div class="ui form">
+      <label class="ui large">${text.gameSelect.en.Greeting}</label>
+      <select value.bind="selectedGame" class="ui huge compact dropdown" change.delegate="action_selectGame()">
+        <option value="">${text.gameSelect.en.ChooseGame}</option>
+        <option repeat.for="game of games" value.bind="game.id">${game.name}</option>
+      </select>
+
+    </div>
+
+    <hr />
+  </section>
+  <section ref="ui_numbers" class="ui basic segment">
+    <label class="ui large">${text.numbers.en.Greeting}</label>
+    <template repeat.for="number of myNumbers">
+      <lotto-number val.two-way="myNumbers[$index]" chosen.bind="chosen[$index]" keyup.trigger="action_keyup($index, $event)"></lotto-number>
+    </template>
+
+    <div class="ui basic segment">
+      <button ref="ui_doneButton" class="ui blue button" click.delegate="action_verifyNumbers()">${text.numbers.en.DoneButton}</button>
+    </div>
+    <hr />
+  </section>
+
+  <section ref="ui_message" class="ui basic segment">
+    <p class="ui large">You got ${countOfNumbersCorrect} correct!</p>
+      <!-- <button ref="ui_reset" class="ui blue button" click.delegate="action_resetNumbers()">${text.numbers.en.StartOver}</button> -->
+  </section>
+</template>

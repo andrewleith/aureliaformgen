@@ -1,0 +1,21 @@
+<template>
+  <require from="./lotto-number"></require>
+  <style>
+    label, p {
+      display: block;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+  </style>
+
+  <section ref="segment" id="${model.id}" class="ui basic segment ui-element">
+    <label ref="ui_question" class="ui large">${model.questionText}</label>
+    <template repeat.for="number of model.meta.numbers">
+      <lotto-number val.two-way="model.app.form.data[model.id].data[$index]" chosen.two-way="chosen[$index]"></lotto-number>
+    </template>
+
+    <div ref="ui_button" class="ui basic segment">
+      <button ref="ui_doneButton" class="ui transition button" click.delegate="click()" focus.trigger="button_focus()">${model.buttonText}</button>
+    </div>
+  </section>
+</template>

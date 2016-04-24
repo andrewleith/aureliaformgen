@@ -1,0 +1,30 @@
+<template>
+  <require from="./dropdown-element"></require>
+  <require from="./lottery-element"></require>
+  <require from="./message-element"></require>
+  <style>
+    .app {
+      opacity: 0;
+    }
+    section {
+      margin: 0 !important;
+      padding-top: 25px;
+    }
+    hr {
+      width: 25%;
+      height: 4px;
+      background: #C1C1C1;
+      border: none;
+      margin-top:28px;
+      opacity: 0;
+    }
+  
+  </style>
+  <div class="ui container">
+    <div ref="appui" class="app">
+      <compose repeat.for="id of form.ids"
+                view-model.bind="form.segments[id].type"
+                model.bind="form.segments[id].model"></compose>
+    </div>
+  </div>
+</template>

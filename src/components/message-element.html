@@ -1,0 +1,15 @@
+<template>
+  <require from="./lotto-number"></require>
+  <style>
+    label, p {
+      display: block;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+  </style>
+
+  <section if.bind="model.app.form.ready[model.id]" ref="segment" id="${model.id}" class="ui basic segment">
+    <p class="ui large">${model.questionText()}</p>
+    <button if.bind="model.buttonText" class="ui large button" click.delegate="button_click()">${model.buttonText}</button>
+  </section>
+</template>
