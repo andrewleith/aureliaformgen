@@ -1,7 +1,9 @@
 # basic aurelia form generator
 This app generates a form based on a specification.  
 
-To begin, see src/components/app.js for an example.  At the bottom of the file, it lays out the form in a object.  The form as specified is made up of named segments each with a particular type.  This project has defined 3 such types so far: dropdown, lotto, and message.
+To begin, start at [app.js](src/components/app.js).  There isn't much code in there, really only the code for handling flows so far. Near the bottom is the definition for `form` which is an example of a form this app could create.  The only implemented widgets are dropdown, message, and lottery types.
+
+The view ([app.html](src/components/app.html)), iterates through the `form` object and creates the widgets as they are specified.  An implementation of basic flows and dynamic text is shown (poorly).
 
 ```javascript
 form = {
