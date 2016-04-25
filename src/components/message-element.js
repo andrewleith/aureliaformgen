@@ -26,7 +26,6 @@ export class MessageElementCustomElement {
   // Message-element has an optional button. If specified, clicking it will
   // execute this hook
   button_click() {
-    debugger;
     if (this.model.exit.eventName == 'click')
     {
       this.model.exit.flow();
